@@ -7,6 +7,6 @@ export class ReplicantController {
 
     @Get()
     getTags(){
-       return this.replicantService.getTagsFromImage();
+       return this.replicantService.separateTagsAndColors();
     }
 }
