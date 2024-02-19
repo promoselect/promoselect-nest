@@ -1,11 +1,11 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
-    name: 'oc_color_info'
+  name: 'oc_color_info',
 })
 export class Color {
   @PrimaryGeneratedColumn({
-    name: 'color_info_id'
+    name: 'color_info_id',
   })
   id: number;
 
