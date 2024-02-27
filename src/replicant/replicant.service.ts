@@ -6,6 +6,7 @@ import { ColorsService } from 'src/color/color.service';
 import Replicate from 'replicate';
 import fs from 'node:fs/promises';
 import { ConfigService } from '@nestjs/config';
+import { ProductService } from 'src/product/product.service';
 
 @Injectable()
 export class ReplicantService {
@@ -13,6 +14,7 @@ export class ReplicantService {
   constructor(
     private colorsService: ColorsService,
     private configService: ConfigService,
+    private productService: ProductService,
   ) {
     this.translator = new deepl.Translator(configService.get('DEEPL_API_KEY'));
   }
@@ -97,21 +99,21 @@ export class ReplicantService {
   }
 
   async separateTagsAndColors() {
-    const response =
-      'armchair, blanket, lamp, carpet, couch, dog, floor, furniture, gray, green, living room, picture frame, pillow, plant, room, sit, stool, wood floor';
-    const traslatedTags = await this.translator.translateText(
-      response,
-      'en',
-      'es',
-    );
-    const responseTags = traslatedTags.text.split(', ');
-    console.log(responseTags);
-    const colors = await this.colorsService.findAll();
-    const colorFilters = [];
-    for (const color of colors) {
-      colorFilters.push(color.name);
-    }
-    console.log(colorFilters);
+    // const response =
+    //   'armchair, blanket, lamp, carpet, couch, dog, floor, furniture, gray, green, living room, picture frame, pillow, plant, room, sit, stool, wood floor';
+    // const traslatedTags = await this.translator.translateText(
+    //   response,
+    //   'en',
+    //   'es',
+    // );
+    // const responseTags = traslatedTags.text.split(', ');
+    // console.log(responseTags);
+    // const colors = await this.colorsService.findAll();
+    // const colorFilters = [];
+    // for (const color of colors) {
+    //   colorFilters.push(color.name);
+    // }
+    console.log("asdasd");
     //   //De la variable responseTags, verifica que colores aparecen en el arreglo de color filters, separalos en un arreglo de colores y los tags en un arreglo propio de tags
     //   const tags = []
     //   for (const tag of responseTags) {

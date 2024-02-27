@@ -6,6 +6,17 @@ import { ReplicantModule } from './replicant/replicant.module';
 import { ChatgptModule } from './chatgpt/chatgpt.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ColorsModule } from './color/color.module';
+import { ProductModule } from './product/product.module';
+import { AttributeController } from './attribute/attribute.controller';
+import { AttributeModule } from './attribute/attribute.module';
+import { AttributeGroupController } from './attribute-group/attribute-group.controller';
+import { AttributeGroupModule } from './attribute-group/attribute-group.module';
+import { AttributeGroupDescriptionController } from './attribute-group-description/attribute-group-description.controller';
+import { AttributeGroupDescriptionModule } from './attribute-group-description/attribute-group-description.module';
+import { AttributeDescriptionController } from './attribute-description/attribute-description.controller';
+import { AttributeDescriptionModule } from './attribute-description/attribute-description.module';
+import { ProductAttributeController } from './product-attribute/product-attribute.controller';
+import { ProductAttributeModule } from './product-attribute/product-attribute.module';
 
 @Module({
   imports: [
@@ -24,8 +35,14 @@ import { ColorsModule } from './color/color.module';
     ReplicantModule,
     ChatgptModule,
     ColorsModule,
+    ProductModule,
+    AttributeModule,
+    AttributeGroupModule,
+    AttributeGroupDescriptionModule,
+    AttributeDescriptionModule,
+    ProductAttributeModule,
   ],
-  controllers: [AppController],
+  controllers: [AppController, AttributeController, AttributeGroupController, AttributeGroupDescriptionController, AttributeDescriptionController, ProductAttributeController],
   providers: [AppService],
 })
 export class AppModule {}
