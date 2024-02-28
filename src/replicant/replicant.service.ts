@@ -113,7 +113,9 @@ export class ReplicantService {
     // for (const color of colors) {
     //   colorFilters.push(color.name);
     // }
-    console.log("asdasd");
+    const product = await this.productService.findOneBySku("T172");
+    console.log(product);
+    //   console.log(colorFilters);
     //   //De la variable responseTags, verifica que colores aparecen en el arreglo de color filters, separalos en un arreglo de colores y los tags en un arreglo propio de tags
     //   const tags = []
     //   for (const tag of responseTags) {

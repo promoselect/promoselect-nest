@@ -22,7 +22,11 @@ export class ProductService {
         await this.ProductRepository.delete(id); 
     }
 
-    // findOneBySku(sku: string): Promise<Product> {
-    //     return this.ProductsRepository.findOneBy({ sku: sku });
-    // }
+    findOneBySku(sku: string): Promise<Product> {
+        return this.ProductRepository.findOneBy({ sku: sku });
+    }
+
+    async getProductAttributes(id: string): Promise<Product> {
+        return this.ProductRepository.findOneBy(id, { relations: ['attribute'] });
+    }
 }

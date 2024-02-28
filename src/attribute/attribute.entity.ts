@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Product } from 'src/product/product.entity';
 @Entity({
   name: 'oc_attribute',
 })
@@ -11,4 +11,8 @@ export class Attribute {
 
   @Column()
   attribute_group_id: number;
+
+  @ManyToOne(type => Product, product => product.attribute)
+  product: Product;
+
 }

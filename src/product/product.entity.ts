@@ -1,5 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Attribute } from 'src/attribute/attribute.entity';
 @Entity({
   name: 'oc_product',
 })
@@ -17,7 +17,10 @@ export class Product {
   })
   sku: string;
   @Column({
-    name: 'type',
+    name: 'status',
   })
-  type: string;
+  status: number;
+
+  @OneToMany(type => Attribute, attribute => attribute.product)
+  attribute: Attribute[];
 }
